@@ -21,12 +21,14 @@ public class CategoryNode
 {
     private String name;
     private TreeMap<String, CategoryNode> childrenCategories;
+    private TreeMap<String, Resource> resources;
     private String desciption;
 
     public CategoryNode(String name,String description)
     {
         this.name = name;
         this.childrenCategories = new TreeMap<>();
+        this.resources = new TreeMap<>();
         this.desciption = description;
     }
 
@@ -34,8 +36,25 @@ public class CategoryNode
     {
         CategoryNode newCategory = new CategoryNode(name,desciption);
         this.childrenCategories.put(name,newCategory);
+    }
 
-
+    public Resource addResource(Resource resource)
+    {
+        ResourceType type = resource.getType();
+        String name = resource.getName();
+        String descroption = resource.getDescription();
+        String URL = resource.getResourceURL();
+        switch (type)
+        {
+            case ARTICLE:
+                ArticleResource articleResource = new ArticleResource(name,descroption,URL);
+                resource = articleResource;
+                break;
+            default:
+                break;
+        }
+        this.resources.put(name,resource);
+        return resource;
     }
     public void addDescription(String description)
     {
