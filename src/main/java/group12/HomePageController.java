@@ -49,9 +49,9 @@ public class HomePageController {
     @FXML
     public Button treeBtn;
 
-    public HomePageController(group12Model theModel){
-        this.theModel = theModel;
-    }
+    //public HomePageController(group12Model theModel){
+      //  this.theModel = theModel;
+    //}
 
 
     public void onClick() throws IOException {
