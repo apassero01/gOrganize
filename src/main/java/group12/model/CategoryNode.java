@@ -21,12 +21,14 @@ public class CategoryNode
 {
     private String name;
     private TreeMap<String, CategoryNode> childrenCategories;
+    private TreeMap<String, Resource> resources;
     private String desciption;
 
     public CategoryNode(String name,String description)
     {
         this.name = name;
         this.childrenCategories = new TreeMap<>();
+        this.resources = new TreeMap<>();
         this.desciption = description;
     }
 
@@ -34,8 +36,11 @@ public class CategoryNode
     {
         CategoryNode newCategory = new CategoryNode(name,desciption);
         this.childrenCategories.put(name,newCategory);
+    }
 
-
+    public void addResource(Resource resource)
+    {
+        this.resources.put(resource.getName(),resource);
     }
     public void addDescription(String description)
     {
