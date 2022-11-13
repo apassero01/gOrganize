@@ -38,23 +38,9 @@ public class CategoryNode
         this.childrenCategories.put(name,newCategory);
     }
 
-    public Resource addResource(Resource resource)
+    public void addResource(Resource resource)
     {
-        ResourceType type = resource.getType();
-        String name = resource.getName();
-        String descroption = resource.getDescription();
-        String URL = resource.getResourceURL();
-        switch (type)
-        {
-            case ARTICLE:
-                ArticleResource articleResource = new ArticleResource(name,descroption,URL);
-                resource = articleResource;
-                break;
-            default:
-                break;
-        }
-        this.resources.put(name,resource);
-        return resource;
+        this.resources.put(resource.getName(),resource);
     }
     public void addDescription(String description)
     {
