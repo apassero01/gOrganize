@@ -63,7 +63,7 @@ public class HomePageController {
     @FXML
     public void onClick() throws IOException {
         ViewSwitcher viewSwitcher = new ViewSwitcher();
-        viewSwitcher.switchTo("Categoryview.fxml");
+        viewSwitcher.switchTo("CategoryView.fxml");
         Scene newScene = viewSwitcher.getScene();
 
         Stage stage = (Stage) treeBtn.getScene().getWindow();
