@@ -42,19 +42,22 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 
-public class HomePageController {
+public class HomePageController implements Controller {
 
 
     @FXML
     public Button treeBtn;
 
+    @FXML
+    public Label label1;
 
-
+    public group12Model model;
 
     @FXML
     public void onClick() throws IOException {
@@ -67,6 +70,15 @@ public class HomePageController {
         Main.loadScene(stage, newScene);
     }
 
+    @Override
+    public void setModel(group12Model model)
+    {
+        this.model=model;
+    }
 
+    @Override
+    public void initController()
+    {
 
+    }
 }

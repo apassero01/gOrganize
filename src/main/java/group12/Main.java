@@ -1,5 +1,7 @@
 package group12;
 
+import group12.controller.*;
+import group12.model.group12Model;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,12 +13,16 @@ public class  Main extends Application
 
 
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("homePage.fxml"));
+//        Parent root = FXMLLoader.load(getClass().getResource("homePage.fxml"));
        // System.out.println("load file");
-        //FXMLLoader loader = new FXMLLoader(getClass().getResource("homePage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("homePage.fxml"));
+
         //System.out.println("loaded as loader");
 
+        Parent root = loader.load();
         var scene = new Scene(root,600,300);
+        HomePageController homePageController = loader.getController();
+        homePageController.setModel(new group12Model("andrew"));
         //Scene root = loader.load();
         //System.out.println("loaded as scene");
 

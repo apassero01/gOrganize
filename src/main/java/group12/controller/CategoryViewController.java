@@ -41,15 +41,30 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import group12.model.group12Model;
 
 import java.io.IOException;
 
-public class CategoryViewController {
+public class CategoryViewController implements Controller{
 
     @FXML
     public Button backButton;
 
+    @FXML
+    public HBox hbox;
+
+    @FXML
+    public VBox vbox;
+
+    private group12Model model;
+//    @FXML
+//    void initialize()
+//    {
+//
+//    }
     @FXML
     public void goBack(MouseEvent event) {
         ViewSwitcher viewSwitcher = new ViewSwitcher();
@@ -66,4 +81,15 @@ public class CategoryViewController {
 
     }
 
+    @Override
+    public void setModel(group12Model model)
+    {
+        this.model = model;
+    }
+
+    @Override
+    public void initController()
+    {
+
+    }
 }

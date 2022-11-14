@@ -11,5 +11,7 @@ module csci205_final_project.main{
     exports group12;
     exports group12.controller;
 
+    opens group12.controller to javafx.fxml;
+
 
 }
