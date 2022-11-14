@@ -22,7 +22,7 @@ import java.util.Scanner;
 
 public class ArticleResource extends Resource
 {
-    private Scanner scnr;
+    private static Scanner scnr;
 
     private String articleContents;
 
