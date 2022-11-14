@@ -34,7 +34,7 @@ public class ArticleResource extends Resource
     }
     private void parseArticle()
     {
-        try(BufferedInputStream in = new BufferedInputStream(new URL(this.resourceURL).openStream()))
+        try(BufferedInputStream in = new BufferedInputStream(new URL(this.resourceLocator).openStream()))
         {
             String contents;
             scnr = new Scanner(in);

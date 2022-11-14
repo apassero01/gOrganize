@@ -49,11 +49,21 @@ public class group12Model
         this.currentNode.addCategory(name,description);
     }
 
-    public void createResource(String name, String description, String URL,ResourceType type)
+    public void createResource(String name, String description, String locator,ResourceType type)
     {
-        Resource newResource = new Resource(name,description,URL,type);
-        newResource = this.currentNode.addResource(newResource);
-        this.currentResource = newResource;
+        Resource resource;
+        switch (type)
+        {
+            case ARTICLE:
+                ArticleResource articleResource = new ArticleResource(name,description,locator);
+                resource = articleResource;
+                break;
+            default:
+                resource = new Resource(name,description,locator,ResourceType.NONE);
+                break;
+        }
+        this.currentNode.addResource(resource);
+        this.currentResource = resource;
     }
 
     public CategoryNode getCurrentNode()

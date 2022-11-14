@@ -19,13 +19,13 @@ public class Resource
 {
     protected String name;
     protected String description;
-    protected String resourceURL;
+    protected String resourceLocator;
     protected ResourceType type;
     public Resource(String name, String description, String URL,ResourceType type)
     {
         this.name = name;
         this.description = description;
-        this.resourceURL = URL;
+        this.resourceLocator = URL;
         this.type = type;
 
     }
@@ -57,12 +57,12 @@ public class Resource
 
     public String getResourceURL()
     {
-        return resourceURL;
+        return resourceLocator;
     }
 
     public void setResourceURL(String resourceURL)
     {
-        this.resourceURL = resourceURL;
+        this.resourceLocator = resourceURL;
     }
 
     public ResourceType getType()
