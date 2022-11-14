@@ -15,9 +15,10 @@
  * *****************************************/
 package group12.model;
 
+import java.io.Serializable;
 import java.util.TreeMap;
 
-public class CategoryNode
+public class CategoryNode implements Serializable
 {
     private String name;
     private TreeMap<String, CategoryNode> childrenCategories;
@@ -52,4 +53,13 @@ public class CategoryNode
         return childrenCategories.get(name);
     }
 
+    @Override
+    public String toString()
+    {
+        return "CategoryNode{" +
+                "name='" + name + '\'' +
+                ", childrenCategories=" + childrenCategories +
+                ", resources=" + resources +
+                '}';
+    }
 }

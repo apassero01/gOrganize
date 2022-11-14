@@ -15,7 +15,9 @@
  * *****************************************/
 package group12.model;
 
-public class Resource
+import java.io.Serializable;
+
+public class Resource implements Serializable
 {
     protected String name;
     protected String description;

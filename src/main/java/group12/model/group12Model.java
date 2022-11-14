@@ -16,7 +16,9 @@
 package group12.model;
 
 
-public class group12Model
+import java.io.Serializable;
+
+public class group12Model implements Serializable
 {
     private CategoryNode rootCategory;
     private CategoryNode currentNode;
@@ -25,11 +27,16 @@ public class group12Model
 
     public static void main(String[] args)
     {
+        ManageData manageData = new ManageData();
         group12Model model = new group12Model("andrew");
         model.createCategory("cooking", "how I cook");
+        model.switchNode("cooking");
         model.createResource("WEbsite", "descri[tipn", "https://www.nytimes.com/2022/11/06/dining/what-to-cook-this-week.html",ResourceType.ARTICLE);
-        Resource resource = model.getCurrentResource();
-        resource.displayResource();
+        System.out.println(model.getCurrentNode());
+        manageData.writeData(model);
+
+        group12Model model2 = (group12Model) manageData.readData();
+        System.out.println(model2.getCurrentNode());
 
 
     }
