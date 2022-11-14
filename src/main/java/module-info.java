@@ -9,7 +9,6 @@ module csci205_final_project.main{
     requires javafx.web;
 
     exports group12;
-    exports group12.controller;
 
 
 }

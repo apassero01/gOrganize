@@ -32,11 +32,9 @@
 
  */
 
-package group12.controller;
+package group12;
 
 
-import group12.Main;
-import group12.ViewSwitcher;
 import group12.model.group12Model;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
