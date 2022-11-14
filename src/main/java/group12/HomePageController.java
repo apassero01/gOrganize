@@ -38,24 +38,36 @@ package group12;
 import group12.model.group12Model;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
 
 public class HomePageController {
 
+
     private group12Model theModel;
     @FXML
     public Button treeBtn;
 
-    //public HomePageController(group12Model theModel){
-      //  this.theModel = theModel;
-    //}
+//    public HomePageController(){
+//        //this.theModel = theModel;
+//        this.viewSwitcher = new ViewSwitcher();
+//    }
 
 
+    @FXML
     public void onClick() throws IOException {
-        ViewSwitcher.switchTo("tree.fxml");
+        ViewSwitcher viewSwitcher = new ViewSwitcher();
+        viewSwitcher.switchTo("Categoryview.fxml");
+        Scene newScene = viewSwitcher.getScene();
+
+        Stage stage = (Stage) treeBtn.getScene().getWindow();
+
+        Main.loadScene(stage, newScene);
+
 
     }
 

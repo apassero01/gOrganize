@@ -43,21 +43,26 @@ import java.io.IOException;
 
 public class ViewSwitcher {
 
-    private static Scene scene;
 
-    public static void setCurrentScene(Scene scene){
-        ViewSwitcher.scene = scene;
+
+    private Scene scene;
+
+    public void setCurrentScene(Scene scene){
+        this.scene = scene;
 
     }
 
 
 
-    public static void switchTo(String fileName) throws IOException {
+    public void switchTo(String fileName) throws IOException {
         Parent root = FXMLLoader.load(ViewSwitcher.class.getResource(fileName));
-
-        scene.setRoot(root);
+        this.scene = new Scene(root);
 
     }
+    public Scene getScene() {
+        return this.scene;
+    }
+
 
 
 }
