@@ -50,14 +50,10 @@ import java.io.IOException;
 public class HomePageController {
 
 
-    private group12Model theModel;
     @FXML
     public Button treeBtn;
 
-//    public HomePageController(){
-//        //this.theModel = theModel;
-//        this.viewSwitcher = new ViewSwitcher();
-//    }
+
 
 
     @FXML

@@ -44,14 +44,7 @@ import java.io.IOException;
 public class ViewSwitcher {
 
 
-
     private Scene scene;
-
-    public void setCurrentScene(Scene scene){
-        this.scene = scene;
-
-    }
-
 
 
     public void switchTo(String fileName) throws IOException {
