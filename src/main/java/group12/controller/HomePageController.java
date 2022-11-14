@@ -32,9 +32,11 @@
 
  */
 
-package group12;
+package group12.controller;
 
 
+import group12.Main;
+import group12.ViewSwitcher;
 import group12.model.group12Model;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -67,8 +69,6 @@ public class HomePageController {
         Stage stage = (Stage) treeBtn.getScene().getWindow();
 
         Main.loadScene(stage, newScene);
-
-
     }
 
 
