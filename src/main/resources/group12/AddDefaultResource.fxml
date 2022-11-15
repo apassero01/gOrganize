@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="734.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextArea layoutX="14.0" layoutY="31.0" prefHeight="91.0" prefWidth="694.0" text="Name" />
+      <TextArea layoutX="14.0" layoutY="137.0" prefHeight="91.0" prefWidth="694.0" text="Description" />
+      <TextArea layoutX="14.0" layoutY="332.0" prefHeight="91.0" prefWidth="694.0" />
+      <Label layoutX="20.0" layoutY="270.0" prefHeight="46.0" prefWidth="407.0" text="Type something you want to remember:" />
+   </children>
+</AnchorPane>

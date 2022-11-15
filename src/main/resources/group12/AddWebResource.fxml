@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="649.0" prefWidth="872.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextArea layoutX="27.0" layoutY="54.0" prefHeight="168.0" prefWidth="819.0" text="Name" />
+      <TextArea layoutX="27.0" layoutY="256.0" prefHeight="229.0" prefWidth="819.0" text="Description" />
+      <TextArea layoutX="27.0" layoutY="508.0" prefHeight="87.0" prefWidth="819.0" text="URL" />
+   </children>
+</AnchorPane>
