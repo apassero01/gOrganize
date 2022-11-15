@@ -36,6 +36,7 @@ package group12.controller;
 
 import group12.ViewSwitcher;
 import group12.model.CategoryNode;
+import group12.model.Resource;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
@@ -91,6 +92,17 @@ public class CategoryViewController implements Controller{
         {
             this.hbox.getChildren().add(buttonFactory(key,"CategoryView.fxml"));
         }
+        initResources();
+    }
+
+    public void initResources()
+    {
+        CategoryNode currentNode = this.model.getCurrentNode();
+        TreeMap<String, Resource> childrenResources = currentNode.getResources();
+        for (String key: childrenResources.keySet())
+        {
+            this.vbox.getChildren().add(buttonFactory(key,"WebResourceView.fxml"));
+        }
     }
 
     public Button buttonFactory(String name,String view)
@@ -100,7 +112,14 @@ public class CategoryViewController implements Controller{
         curButton.setOnAction(event -> {
             try
             {
-                this.model.switchNode(name);
+                if (view.equals("CategoryView.fxml"))
+                {
+                    this.model.switchNode(name);
+                }
+                else
+                {
+                    this.model.selectResource(name);
+                }
                 this.viewSwitcher.switchTo(view,curButton,model);
             } catch (IOException e)
             {

@@ -1,6 +1,7 @@
 package group12;
 
 import group12.controller.*;
+import group12.model.ResourceType;
 import group12.model.group12Model;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -52,6 +53,7 @@ public class  Main extends Application
         model.createCategory("Loser","loser");
         model.createCategory("loser2","loser2");
         model.switchNode("loser2");
+        model.createResource("website","","https://aiecode.com/dashboard/54", ResourceType.NONE);
         model.createCategory("loserInsideOfLoser","");
         model.switchToParent();
         return model;

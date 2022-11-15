@@ -51,6 +51,8 @@ public class group12Model implements Serializable
         currentNode = this.currentNode.getNextCategory(name);
     }
 
+    public void selectResource(String name){this.currentResource = this.currentNode.getResources().get(name);}
+
     public void createCategory(String name, String description)
     {
         this.currentNode.addCategory(name,description);
