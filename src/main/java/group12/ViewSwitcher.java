@@ -35,9 +35,13 @@
 package group12;
 
 
+import group12.controller.Controller;
+import group12.model.group12Model;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -47,9 +51,17 @@ public class ViewSwitcher {
     private Scene scene;
 
 
-    public void switchTo(String fileName) throws IOException {
-        Parent root = FXMLLoader.load(ViewSwitcher.class.getResource(fileName));
+    public void switchTo(String fileName, Button btn, group12Model model) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(fileName));
+        Parent root = loader.load();
         this.scene = new Scene(root);
+
+        Controller controller = loader.getController();
+        controller.setModel(model);
+        controller.initController();
+        Stage stage = (Stage) btn.getScene().getWindow();
+
+        Main.loadScene(stage, scene);
 
     }
     public Scene getScene() {

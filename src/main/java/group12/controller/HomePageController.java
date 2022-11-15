@@ -62,12 +62,7 @@ public class HomePageController implements Controller {
     @FXML
     public void onClick() throws IOException {
         ViewSwitcher viewSwitcher = new ViewSwitcher();
-        viewSwitcher.switchTo("CategoryView.fxml");
-        Scene newScene = viewSwitcher.getScene();
-
-        Stage stage = (Stage) treeBtn.getScene().getWindow();
-
-        Main.loadScene(stage, newScene);
+        viewSwitcher.switchTo("CategoryView.fxml",treeBtn,model);
     }
 
     @Override

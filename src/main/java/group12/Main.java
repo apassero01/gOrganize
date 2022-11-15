@@ -22,7 +22,7 @@ public class  Main extends Application
         Parent root = loader.load();
         var scene = new Scene(root,600,300);
         HomePageController homePageController = loader.getController();
-        homePageController.setModel(new group12Model("andrew"));
+        homePageController.setModel(testModel());
         //Scene root = loader.load();
         //System.out.println("loaded as scene");
 
@@ -44,6 +44,17 @@ public class  Main extends Application
         }
 
 
+    }
+
+    public static group12Model testModel()
+    {
+        group12Model model = new group12Model("Andrew");
+        model.createCategory("Loser","loser");
+        model.createCategory("loser2","loser2");
+        model.switchNode("loser2");
+        model.createCategory("loserInsideOfLoser","");
+        model.switchToParent();
+        return model;
     }
 
 }

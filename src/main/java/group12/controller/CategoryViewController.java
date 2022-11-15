@@ -34,19 +34,17 @@
 
 package group12.controller;
 
-
-import group12.Main;
 import group12.ViewSwitcher;
+import group12.model.CategoryNode;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 import group12.model.group12Model;
 
 import java.io.IOException;
+import java.util.TreeMap;
 
 public class CategoryViewController implements Controller{
 
@@ -60,25 +58,21 @@ public class CategoryViewController implements Controller{
     public VBox vbox;
 
     private group12Model model;
-//    @FXML
-//    void initialize()
-//    {
-//
-//    }
+
+    private ViewSwitcher viewSwitcher;
+
     @FXML
-    public void goBack(MouseEvent event) {
-        ViewSwitcher viewSwitcher = new ViewSwitcher();
-        try {
-            viewSwitcher.switchTo("homePage.fxml");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+    public void goBack(MouseEvent event) throws IOException
+    {
+        if (this.model.getCurrentNode() == this.model.getRootCategory())
+        {
+            viewSwitcher.switchTo("homePage.fxml",backButton,this.model);
         }
-        Scene newScene = viewSwitcher.getScene();
-
-        Stage stage = (Stage) backButton.getScene().getWindow();
-
-        Main.loadScene(stage, newScene);
-
+        else
+        {
+            this.model.switchToParent();
+            viewSwitcher.switchTo("CategoryView.fxml",backButton,this.model);
+        }
     }
 
     @Override
@@ -90,6 +84,29 @@ public class CategoryViewController implements Controller{
     @Override
     public void initController()
     {
+        viewSwitcher = new ViewSwitcher();
+        CategoryNode currentNode = this.model.getCurrentNode();
+        TreeMap<String,CategoryNode> childrenCategories = currentNode.getChildrenCategories();
+        for (String key: childrenCategories.keySet())
+        {
+            this.hbox.getChildren().add(buttonFactory(key,"CategoryView.fxml"));
+        }
+    }
 
+    public Button buttonFactory(String name,String view)
+    {
+        Button curButton = new Button(name);
+
+        curButton.setOnAction(event -> {
+            try
+            {
+                this.model.switchNode(name);
+                this.viewSwitcher.switchTo(view,curButton,model);
+            } catch (IOException e)
+            {
+                throw new RuntimeException(e);
+            }
+        });
+        return curButton;
     }
 }

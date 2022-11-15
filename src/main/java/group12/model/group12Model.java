@@ -42,7 +42,7 @@ public class group12Model implements Serializable
     }
     public group12Model(String name)
     {
-        this.rootCategory = new CategoryNode(name,"");
+        this.rootCategory = new CategoryNode(name,"",null);
         this.currentNode = rootCategory;
     }
 
@@ -73,6 +73,16 @@ public class group12Model implements Serializable
         this.currentResource = resource;
     }
 
+    public void switchToParent()
+    {
+        this.currentNode = this.currentNode.getParent();
+    }
+
+    public CategoryNode getRootCategory()
+    {
+        return rootCategory;
+    }
+
     public CategoryNode getCurrentNode()
     {
         return currentNode;
@@ -82,4 +92,5 @@ public class group12Model implements Serializable
     {
         return currentResource;
     }
+
 }

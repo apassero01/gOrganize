@@ -12,7 +12,7 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <HBox layoutX="297.0" layoutY="54.0" prefHeight="100.0" prefWidth="200.0" />
+                  <HBox fx:id="hbox" layoutX="297.0" layoutY="54.0" prefHeight="100.0" prefWidth="200.0" />
                   <HBox layoutX="14.0" layoutY="178.0" prefHeight="100.0" prefWidth="200.0" />
                   <HBox layoutX="297.0" layoutY="178.0" prefHeight="100.0" prefWidth="200.0" />
                   <HBox layoutX="579.0" layoutY="178.0" prefHeight="100.0" prefWidth="200.0" />

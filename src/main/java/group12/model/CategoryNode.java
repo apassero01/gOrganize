@@ -25,8 +25,11 @@ public class CategoryNode implements Serializable
     private TreeMap<String, Resource> resources;
     private String desciption;
 
-    public CategoryNode(String name,String description)
+    private CategoryNode parent;
+
+    public CategoryNode(String name,String description,CategoryNode parent)
     {
+        this.parent = parent;
         this.name = name;
         this.childrenCategories = new TreeMap<>();
         this.resources = new TreeMap<>();
@@ -35,7 +38,7 @@ public class CategoryNode implements Serializable
 
     public void addCategory(String name,String desciption)
     {
-        CategoryNode newCategory = new CategoryNode(name,desciption);
+        CategoryNode newCategory = new CategoryNode(name,desciption,this);
         this.childrenCategories.put(name,newCategory);
     }
 
@@ -52,6 +55,23 @@ public class CategoryNode implements Serializable
     {
         return childrenCategories.get(name);
     }
+
+    public TreeMap<String, CategoryNode> getChildrenCategories()
+    {
+        return childrenCategories;
+    }
+
+    public TreeMap<String, Resource> getResources()
+    {
+        return resources;
+    }
+
+    public CategoryNode getParent()
+    {
+        return this.parent;
+    }
+
+
 
     @Override
     public String toString()
