@@ -6,12 +6,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="585.0" prefWidth="774.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="585.0" prefWidth="774.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="group12.controller.AddCategoryController">
    <children>
-      <TextArea layoutX="70.0" layoutY="102.0" prefHeight="92.0" prefWidth="635.0" />
-      <TextArea layoutX="70.0" layoutY="280.0" prefHeight="200.0" prefWidth="635.0" />
-      <Button layoutX="14.0" layoutY="22.0" mnemonicParsing="false" text="Back" />
-      <Button layoutX="349.0" layoutY="519.0" mnemonicParsing="false" text="Continue" />
+      <TextArea fx:id="nameArea" layoutX="70.0" layoutY="102.0" prefHeight="92.0" prefWidth="635.0" />
+      <TextArea fx:id="descriptionArea" layoutX="70.0" layoutY="280.0" prefHeight="200.0" prefWidth="635.0" />
+      <Button fx:id="backButton" layoutX ="14.0" layoutY="22.0" mnemonicParsing="false" text="Back" />
+      <Button fx:id="continueButton" layoutX="349.0" layoutY="519.0" mnemonicParsing="false" text="Continue" />
       <Label layoutX="70.0" layoutY="67.0" text="Name of category">
          <font>
             <Font size="15.0" />

@@ -14,6 +14,8 @@
                <children>
                   <HBox fx:id="hbox" layoutY="54.0" prefHeight="210.0" prefWidth="793.0" />
                   <Button fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#goBack" text="Back" />
+                  <Button fx:id="addResourceButton" layoutX="691.0" layoutY="16.0" mnemonicParsing="false" text="Add Resource" />
+                  <Button fx:id="addCategoryButton" layoutX="585.0" layoutY="16.0" mnemonicParsing="false" text="Add Category" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">

@@ -38,12 +38,12 @@ import group12.ViewSwitcher;
 import group12.model.CategoryNode;
 import group12.model.Resource;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import group12.model.group12Model;
-
 import java.io.IOException;
 import java.util.TreeMap;
 
@@ -51,6 +51,12 @@ public class CategoryViewController implements Controller{
 
     @FXML
     public Button backButton;
+
+    @FXML
+    public Button addCategoryButton;
+
+    @FXML
+    public Button addResourceButton;
 
     @FXML
     public HBox hbox;
@@ -85,14 +91,34 @@ public class CategoryViewController implements Controller{
     @Override
     public void initController()
     {
+        this.hbox.setSpacing(50);
+        this.hbox.setAlignment(Pos.CENTER);
         viewSwitcher = new ViewSwitcher();
+        initSubCategories();
+        initResources();
+        this.addCategoryButton.setOnAction(event -> {
+            try
+            {
+                this.viewSwitcher.switchTo("AddCategoryView.fxml",this.addCategoryButton,this.model);
+            } catch (IOException e)
+            {
+                throw new RuntimeException(e);
+            }
+        });
+    }
+
+    private void initSubCategories()
+    {
         CategoryNode currentNode = this.model.getCurrentNode();
         TreeMap<String,CategoryNode> childrenCategories = currentNode.getChildrenCategories();
         for (String key: childrenCategories.keySet())
         {
-            this.hbox.getChildren().add(buttonFactory(key,"CategoryView.fxml"));
+            Button btn = buttonFactory(key,"CategoryView.fxml");
+            btn.setAlignment(Pos.CENTER);
+            btn.setPrefHeight(75);
+            btn.setPrefWidth(100);
+            this.hbox.getChildren().add(btn);
         }
-        initResources();
     }
 
     public void initResources()
