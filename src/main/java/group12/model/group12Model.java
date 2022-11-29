@@ -23,6 +23,7 @@ public class group12Model implements Serializable
     private CategoryNode rootCategory;
     private CategoryNode currentNode;
 
+    private static ManageData manageData;
     private Resource currentResource;
 
     public static void main(String[] args)
@@ -55,11 +56,14 @@ public class group12Model implements Serializable
 
     public void createCategory(String name, String description)
     {
+        manageData = new ManageData();
         this.currentNode.addCategory(name,description);
+        manageData.writeData(this);
     }
 
     public void createResource(String name, String description, String locator,ResourceType type)
     {
+        manageData = new ManageData();
         Resource resource;
         switch (type)
         {
@@ -73,6 +77,7 @@ public class group12Model implements Serializable
         }
         this.currentNode.addResource(resource);
         this.currentResource = resource;
+        manageData.writeData(this);
     }
 
     public void switchToParent()

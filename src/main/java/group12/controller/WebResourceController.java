@@ -15,17 +15,31 @@
  * *****************************************/
 package group12.controller;
 
+import group12.ViewSwitcher;
 import group12.model.Resource;
 import group12.model.group12Model;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.web.WebView;
+
+import java.io.IOException;
+
 
 public class WebResourceController implements Controller
 {
+
     @FXML
-    FlowPane flowPane;
+    StackPane stackpane;
+
+    @FXML
+    Button backButton;
+
+    private static ViewSwitcher viewSwitcher;
     private group12Model model;
+
+    private WebView webView;
 
     private Resource resource;
     @Override
@@ -37,10 +51,30 @@ public class WebResourceController implements Controller
     @Override
     public void initController()
     {
+        viewSwitcher = new ViewSwitcher();
+        createWebView();
+        this.backButton.setOnAction(event -> {
+            try
+            {
+                webView.getEngine().load(null);
+                this.viewSwitcher.switchTo("CategoryView.fxml",this.backButton,this.model);
+            } catch (IOException e)
+            {
+                throw new RuntimeException(e);
+            }
+        });
+    }
+
+    private void createWebView()
+    {
         this.resource = this.model.getCurrentResource();
-        WebView webView = new WebView();
+        webView = new WebView();
+        webView.minWidth(stackpane.getWidth());
+        webView.prefWidth(stackpane.getWidth());
+        webView.prefHeight(stackpane.getHeight());
+        webView.prefHeight(stackpane.getHeight());
 
         webView.getEngine().load(resource.getResourceURL());
-        flowPane.getChildren().add(webView);
+        stackpane.getChildren().add(webView);
     }
 }

@@ -1,6 +1,7 @@
 package group12;
 
 import group12.controller.*;
+import group12.model.ManageData;
 import group12.model.ResourceType;
 import group12.model.group12Model;
 import javafx.application.Application;
@@ -9,9 +10,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.File;
+
 public class  Main extends Application
 {
 
+    public static ManageData manageData;
 
     public void start(Stage primaryStage) throws Exception{
 //        Parent root = FXMLLoader.load(getClass().getResource("homePage.fxml"));
@@ -23,7 +27,9 @@ public class  Main extends Application
         Parent root = loader.load();
         var scene = new Scene(root,600,300);
         HomePageController homePageController = loader.getController();
-        homePageController.setModel(testModel());
+        group12Model model = initializeModel();
+        model.createResource("test", "Desci","https://www.youtube.com/watch?v=c0UeuHYWp3Q",ResourceType.NONE);
+        homePageController.setModel(model);
         //Scene root = loader.load();
         //System.out.println("loaded as scene");
 
@@ -47,6 +53,22 @@ public class  Main extends Application
 
     }
 
+    public static group12Model initializeModel()
+    {
+        group12Model model;
+        manageData = new ManageData();
+        File file = new File("categories.bin");
+        if (file.exists())
+        {
+            model = (group12Model) manageData.readData();
+        }
+        else
+        {
+            model = new group12Model("test");
+        }
+
+        return model;
+    }
     public static group12Model testModel()
     {
         group12Model model = new group12Model("Andrew");

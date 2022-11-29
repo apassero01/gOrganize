@@ -22,7 +22,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 
-import javax.swing.text.View;
 import java.io.IOException;
 
 public class AddCategoryController implements Controller
@@ -71,8 +70,8 @@ public class AddCategoryController implements Controller
 
     public void createCategory()
     {
-        CategoryNode currentCategory = this.model.getCurrentNode();
-        currentCategory.addCategory(this.nameArea.getText(),this.descriptionArea.getText());
+
+        this.model.createCategory(this.nameArea.getText(),this.descriptionArea.getText());
         try
         {
             this.viewSwitcher.switchTo("CategoryView.fxml",this.continueButton,this.model);
