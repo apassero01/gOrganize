@@ -23,6 +23,7 @@ public class ManageData
     {
         try(FileOutputStream fs = new FileOutputStream("categories.bin"))
         {
+//            System.out.println("Writing data");
             ObjectOutputStream os = new ObjectOutputStream(fs);
             os.writeObject(obj);
             os.close();
@@ -41,10 +42,7 @@ public class ManageData
             Object object = is.readObject();
             is.close();
             return object;
-        } catch (IOException e)
-        {
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e)
+        } catch (IOException | ClassNotFoundException e)
         {
             throw new RuntimeException(e);
         }
