@@ -4,11 +4,11 @@
  *
  * Name: Andrew Passero
  * Section: Section 2 11am
- * Date: 11/25/22* Time: 4:30 PM
+ * Date: 12/1/22* Time: 2:42 PM
  *
  * Project: csci205_final_project
  * Package: group12.controller
- * Class: AddCategoryController
+ * Class: AddWebResourceController
  *
  * Description:
  *
@@ -16,6 +16,7 @@
 package group12.controller;
 
 import group12.ViewSwitcher;
+import group12.model.ResourceType;
 import group12.model.group12Model;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -23,7 +24,10 @@ import javafx.scene.control.TextArea;
 
 import java.io.IOException;
 
-public class AddCategoryController implements Controller
+/**
+ *
+ */
+public class AddWebResourceController implements Controller
 {
     @FXML
     Button backButton;
@@ -36,13 +40,12 @@ public class AddCategoryController implements Controller
 
     @FXML
     TextArea descriptionArea;
-
     @FXML
-    TextArea resourceTextArea;
+    TextArea URLArea;
 
-    group12Model model;
+    private group12Model model;
 
-    ViewSwitcher viewSwitcher;
+    private ViewSwitcher viewSwitcher;
 
 
     @Override
@@ -56,7 +59,7 @@ public class AddCategoryController implements Controller
     public void initController()
     {
         this.continueButton.setOnAction(event -> {
-            createCategory();
+            createResource();
         });
 
         this.backButton.setOnAction(event -> {
@@ -70,10 +73,10 @@ public class AddCategoryController implements Controller
         });
     }
 
-    public void createCategory()
+    public void createResource()
     {
 
-        this.model.createCategory(this.nameArea.getText(),this.descriptionArea.getText());
+        this.model.createResource(this.nameArea.getText(),this.descriptionArea.getText(),this.URLArea.getText(), ResourceType.WEB);
         try
         {
             this.viewSwitcher.switchTo("CategoryView.fxml",this.continueButton,this.model);

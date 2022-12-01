@@ -17,22 +17,24 @@ package group12.controller;
 
 import group12.model.Resource;
 import group12.model.group12Model;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 
-import javax.swing.*;
-import java.util.ArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
-public class ResourceController implements Controller
+
+public abstract class ResourceController implements Controller
 {
 
     protected TextArea parentTextArea;
 
     protected Button parentSaveButton;
+
+    protected Label parentTitleLabel;
+
+    protected Label parentDescriptionLabel;
+
+    protected Resource resource;
 
     protected group12Model model;
 
@@ -42,6 +44,10 @@ public class ResourceController implements Controller
             this.model.addResourceText(this.parentTextArea.getText());
             updateTextDisplay();
         });
+
+        this.parentTitleLabel.setText(this.resource.getName());
+        this.parentDescriptionLabel.setText(this.resource.getDescription());
+
     }
 
     protected void updateTextDisplay()
@@ -50,15 +56,11 @@ public class ResourceController implements Controller
         this.parentTextArea.setText(resource.getNotesText());
     }
 
-
     @Override
     public void setModel(group12Model model)
     {
         this.model = model;
+        this.resource = this.model.getCurrentResource();
     }
 
-    @Override
-    public void initController()
-    {
-    }
 }

@@ -28,7 +28,7 @@ public class  Main extends Application
         var scene = new Scene(root,600,300);
         HomePageController homePageController = loader.getController();
         group12Model model = initializeModel();
-        model.createResource("test", "Desci","https://www.youtube.com/watch?v=c0UeuHYWp3Q",ResourceType.NONE);
+        model.createResource("test", "This is all of my cooking shit","https://www.cookingclassy.com/",ResourceType.WEB);
         homePageController.setModel(model);
         //Scene root = loader.load();
         //System.out.println("loaded as scene");
@@ -75,7 +75,7 @@ public class  Main extends Application
         model.createCategory("Loser","loser");
         model.createCategory("loser2","loser2");
         model.switchNode("loser2");
-        model.createResource("website","","https://aiecode.com/dashboard/54", ResourceType.NONE);
+        model.createResource("website","","https://aiecode.com/dashboard/54", ResourceType.WEB);
         model.createCategory("loserInsideOfLoser","");
         model.switchToParent();
         return model;

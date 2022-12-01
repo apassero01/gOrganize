@@ -6,25 +6,30 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="545.0" prefWidth="786.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="649.0" prefWidth="872.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="group12.controller.AddDefaultResourceController">
    <children>
-      <TextArea layoutX="20.0" layoutY="102.0" prefHeight="91.0" prefWidth="747.0" />
-      <TextArea layoutX="14.0" layoutY="237.0" prefHeight="91.0" prefWidth="747.0" />
-      <TextArea layoutX="14.0" layoutY="384.0" prefHeight="91.0" prefWidth="747.0" />
-      <Label layoutX="20.0" layoutY="347.0" prefHeight="32.0" prefWidth="407.0" text="Type something you want to remember:">
+      <TextArea fx:id="nameArea" layoutX="17.0" layoutY="123.0" prefHeight="39.0" prefWidth="832.0" />
+      <TextArea fx:id="descriptionArea" layoutX="18.0" layoutY="202.0" prefHeight="91.0" prefWidth="832.0" />
+      <TextArea fx:id="resourceTextArea" layoutX="19.0" layoutY="341.0" prefHeight="91.0" prefWidth="835.0" />
+      <Label layoutX="20.0" layoutY="303.0" prefHeight="32.0" prefWidth="407.0" text="Important information to come back to">
          <font>
             <Font size="15.0" />
          </font></Label>
-      <Button layoutX="20.0" layoutY="21.0" mnemonicParsing="false" text="Back" />
-      <Button layoutX="355.0" layoutY="492.0" mnemonicParsing="false" text="Continue" />
-      <Label layoutX="23.0" layoutY="74.0" text="Name">
+      <Button fx:id="backButton" layoutX="20.0" layoutY="21.0" mnemonicParsing="false" text="Back" />
+      <Button fx:id="continueButton" layoutX="399.0" layoutY="444.0" mnemonicParsing="false" text="Continue" />
+      <Label layoutX="20.0" layoutY="96.0" text="Name">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="22.0" layoutY="212.0" text="Description">
+      <Label layoutX="22.0" layoutY="175.0" text="Description">
          <font>
             <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="21.0" layoutY="53.0" prefHeight="17.0" prefWidth="826.0" text="Create a new resource to remember something important with a name, descrtiption and the content of the resource" textAlignment="CENTER">
+         <font>
+            <Font size="16.0" />
          </font>
       </Label>
    </children>

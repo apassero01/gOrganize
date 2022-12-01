@@ -26,21 +26,6 @@ public class group12Model implements Serializable
     private static ManageData manageData;
     private Resource currentResource;
 
-    public static void main(String[] args)
-    {
-        ManageData manageData = new ManageData();
-        group12Model model = new group12Model("andrew");
-        model.createCategory("cooking", "how I cook");
-        model.switchNode("cooking");
-        model.createResource("WEbsite", "descri[tipn", "https://www.nytimes.com/2022/11/06/dining/what-to-cook-this-week.html",ResourceType.ARTICLE);
-        System.out.println(model.getCurrentNode());
-        manageData.writeData(model);
-
-        group12Model model2 = (group12Model) manageData.readData();
-        System.out.println(model2.getCurrentNode());
-
-
-    }
     public group12Model(String name)
     {
         this.rootCategory = new CategoryNode(name,"",null);
@@ -52,37 +37,46 @@ public class group12Model implements Serializable
         currentNode = this.currentNode.getNextCategory(name);
     }
 
-    public void selectResource(String name){this.currentResource = this.currentNode.getResources().get(name);}
+    public ResourceType selectResource(String name)
+    {
+        this.currentResource = this.currentNode.getResources().get(name);
+        return this.currentResource.getType();
+    }
 
     public void createCategory(String name, String description)
     {
-        manageData = new ManageData();
         this.currentNode.addCategory(name,description);
+        saveData();
+    }
+
+    public void saveData()
+    {
+        manageData = new ManageData();
         manageData.writeData(this);
     }
 
     public void createResource(String name, String description, String locator,ResourceType type)
     {
-        manageData = new ManageData();
         Resource resource;
         switch (type)
         {
-            case ARTICLE:
-                ArticleResource articleResource = new ArticleResource(name,description,locator);
-                resource = articleResource;
+            case WEB:
+                resource = new Resource(name,description,locator,ResourceType.WEB);
                 break;
             default:
-                resource = new Resource(name,description,locator,ResourceType.NONE);
+                resource = new Resource(name,description,locator,ResourceType.DEFAULT);
                 break;
         }
         this.currentNode.addResource(resource);
         this.currentResource = resource;
-        manageData.writeData(this);
+        saveData();
     }
 
     public void addResourceText(String string)
     {
+
         this.currentResource.setNotesText(string);
+        saveData();
     }
 
     public void switchToParent()

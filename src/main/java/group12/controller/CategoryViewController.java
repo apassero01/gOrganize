@@ -37,6 +37,7 @@ package group12.controller;
 import group12.ViewSwitcher;
 import group12.model.CategoryNode;
 import group12.model.Resource;
+import group12.model.ResourceType;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
@@ -49,6 +50,7 @@ import group12.model.group12Model;
 import java.awt.*;
 import java.io.IOException;
 import java.util.TreeMap;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class CategoryViewController implements Controller{
 
@@ -87,6 +89,7 @@ public class CategoryViewController implements Controller{
             viewSwitcher.switchTo("CategoryView.fxml",backButton,this.model);
         }
     }
+
     @Override
     public void setModel(group12Model model)
     {
@@ -118,7 +121,7 @@ public class CategoryViewController implements Controller{
         TreeMap<String,CategoryNode> childrenCategories = currentNode.getChildrenCategories();
         for (String key: childrenCategories.keySet())
         {
-            Button btn = buttonFactory(key,"CategoryView.fxml");
+            Button btn = categoryButtonFactory(key);
             btn.setAlignment(Pos.CENTER);
             btn.setPrefHeight(75);
             btn.setPrefWidth(100);
@@ -132,26 +135,46 @@ public class CategoryViewController implements Controller{
         TreeMap<String, Resource> childrenResources = currentNode.getResources();
         for (String key: childrenResources.keySet())
         {
-            this.vbox.getChildren().add(buttonFactory(key,"WebResourceView.fxml"));
+            this.vbox.getChildren().add(resourceButtonFactory(key));
         }
     }
 
-    public Button buttonFactory(String name,String view)
+    public Button resourceButtonFactory(String name)
+    {
+        Button curButton = new Button(name);
+        AtomicReference<String> view = new AtomicReference<>("");
+        curButton.setOnAction(event -> {
+            ResourceType type = this.model.selectResource(name);
+            switch (type)
+            {
+                case WEB:
+                    view.set("WebResourceView.fxml");
+                    break;
+                case DEFAULT:
+                    view.set("DefaultResourceView.fxml");
+                    break;
+                default:
+                    break;
+            }
+            try
+            {
+                this.viewSwitcher.switchTo(view.get(),curButton,model);
+            } catch (IOException e)
+            {
+                throw new RuntimeException(e);
+            }
+        });
+        return curButton;
+    }
+    public Button categoryButtonFactory(String name)
     {
         Button curButton = new Button(name);
 
         curButton.setOnAction(event -> {
             try
             {
-                if (view.equals("CategoryView.fxml"))
-                {
-                    this.model.switchNode(name);
-                }
-                else
-                {
-                    this.model.selectResource(name);
-                }
-                this.viewSwitcher.switchTo(view,curButton,model);
+                this.model.switchNode(name);
+                this.viewSwitcher.switchTo("CategoryView.fxml",curButton,model);
             } catch (IOException e)
             {
                 throw new RuntimeException(e);
