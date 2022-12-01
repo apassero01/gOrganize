@@ -17,36 +17,41 @@ package group12.controller;
 
 import group12.ViewSwitcher;
 import group12.model.Resource;
-import group12.model.group12Model;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.layout.FlowPane;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
 import javafx.scene.web.WebView;
 
 import java.io.IOException;
 
 
-public class WebResourceController implements Controller
+public class WebResourceController extends ResourceController implements Controller
 {
 
     @FXML
     StackPane stackpane;
 
     @FXML
+    TextArea textArea;
+
+    @FXML
+    Button saveButton;
+    @FXML
     Button backButton;
 
     private static ViewSwitcher viewSwitcher;
-    private group12Model model;
+//    private group12Model model;
 
     private WebView webView;
 
     private Resource resource;
-    @Override
-    public void setModel(group12Model model)
-    {
-        this.model = model;
-    }
+//    @Override
+////    public void setModel(group12Model model)
+////    {
+////        this.model = model;
+////    }
 
     @Override
     public void initController()
@@ -63,6 +68,11 @@ public class WebResourceController implements Controller
                 throw new RuntimeException(e);
             }
         });
+
+        this.parentSaveButton = saveButton;
+        this.parentTextArea = textArea;
+        this.updateTextDisplay();
+        this.initButtons();
     }
 
     private void createWebView()
