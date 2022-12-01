@@ -37,6 +37,7 @@ package group12.controller;
 import group12.ViewSwitcher;
 import group12.model.CategoryNode;
 import group12.model.Resource;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -44,6 +45,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import group12.model.group12Model;
+
+import java.awt.*;
 import java.io.IOException;
 import java.util.TreeMap;
 
@@ -64,6 +67,9 @@ public class CategoryViewController implements Controller{
     @FXML
     public VBox vbox;
 
+    @FXML
+    public MenuItem menuItem;
+
     private group12Model model;
 
     private ViewSwitcher viewSwitcher;
@@ -81,7 +87,6 @@ public class CategoryViewController implements Controller{
             viewSwitcher.switchTo("CategoryView.fxml",backButton,this.model);
         }
     }
-
     @Override
     public void setModel(group12Model model)
     {
@@ -153,5 +158,14 @@ public class CategoryViewController implements Controller{
             }
         });
         return curButton;
+    }
+
+    public void addWebRosource(javafx.event.ActionEvent actionEvent) throws IOException {
+        viewSwitcher.switchTo("AddWebResource.fxml",backButton,this.model);
+    }
+
+
+    public void addDefaultResource(ActionEvent actionEvent) throws IOException {
+        viewSwitcher.switchTo("AddDefaultResource.fxml",backButton,this.model);
     }
 }

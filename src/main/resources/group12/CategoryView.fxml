@@ -19,9 +19,8 @@
                   <Button fx:id="addCategoryButton" layoutX="544.0" layoutY="14.0" mnemonicParsing="false" text="Add Category" />
                   <MenuButton layoutX="676.0" layoutY="14.0" mnemonicParsing="false" text="Add Resource">
                     <items>
-                      <MenuItem mnemonicParsing="false" text="PDF" />
-                      <MenuItem mnemonicParsing="false" text="Web" />
-                        <MenuItem mnemonicParsing="false" text="Other Resource" />
+                      <MenuItem fx:id="addWeb" mnemonicParsing="false" onAction="#addWebRosource" text="Web" />
+                        <MenuItem fx:id="otherResource" mnemonicParsing="false" onAction="#addDefaultResource" text="Other Resource" />
                     </items>
                   </MenuButton>
                </children>
