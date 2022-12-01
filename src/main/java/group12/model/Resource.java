@@ -16,11 +16,13 @@
 package group12.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Resource implements Serializable
 {
     protected String name;
     protected String description;
+    protected String notesText;
     protected String resourceLocator;
     protected ResourceType type;
     public Resource(String name, String description, String URL,ResourceType type)
@@ -29,6 +31,7 @@ public class Resource implements Serializable
         this.description = description;
         this.resourceLocator = URL;
         this.type = type;
+        this.notesText = "";
 
     }
 
@@ -60,6 +63,16 @@ public class Resource implements Serializable
     public String getResourceURL()
     {
         return resourceLocator;
+    }
+
+    public String getNotesText()
+    {
+        return notesText;
+    }
+
+    public void setNotesText(String notesText)
+    {
+        this.notesText = notesText;
     }
 
     public void setResourceURL(String resourceURL)

@@ -80,6 +80,11 @@ public class group12Model implements Serializable
         manageData.writeData(this);
     }
 
+    public void addResourceText(String string)
+    {
+        this.currentResource.setNotesText(string);
+    }
+
     public void switchToParent()
     {
         this.currentNode = this.currentNode.getParent();
