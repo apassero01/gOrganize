@@ -20,7 +20,11 @@ import java.io.Serializable;
 
 public class group12Model implements Serializable
 {
+
+    /** Root category for the tree of categories */
     private CategoryNode rootCategory;
+
+    /** */
     private CategoryNode currentNode;
 
     private static ManageData manageData;

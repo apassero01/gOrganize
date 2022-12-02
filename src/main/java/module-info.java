@@ -1,4 +1,4 @@
-module csci205_final_project.main{
+module csci205_final_project{
 
     requires java.base;
     requires java.desktop;
