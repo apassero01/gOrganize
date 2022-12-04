@@ -6,17 +6,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="623.0" prefWidth="795.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="group12.controller.DefaultResourceController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="585.0" prefWidth="774.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="group12.controller.DefaultResourceController">
    <children>
       <Button fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Back" />
-      <TextArea fx:id="textArea" layoutX="14.0" layoutY="153.0" prefHeight="402.0" prefWidth="769.0" />
+      <TextArea fx:id="textArea" layoutX="8.0" layoutY="156.0" prefHeight="402.0" prefWidth="758.0" />
       <Button fx:id="saveButton" layoutX="374.0" layoutY="558.0" mnemonicParsing="false" text="Save" />
-      <Label fx:id="titleLabel" layoutX="361.0" layoutY="20.0" alignment="CENTER">
+      <Label fx:id="titleLabel" alignment="CENTER" layoutX="361.0" layoutY="20.0">
          <font>
             <Font size="36.0" />
          </font>
       </Label>
       <Label fx:id="descriptionLabel" layoutX="22.0" layoutY="76.0" prefHeight="17.0" prefWidth="749.0" />
       <Label layoutX="22.0" layoutY="121.0" text="Important Notes" />
+      <Button layoutX="692.0" layoutY="14.0" mnemonicParsing="false" text="Delete" />
    </children>
 </AnchorPane>

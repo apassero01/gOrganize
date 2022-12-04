@@ -25,7 +25,7 @@ public class  Main extends Application
         //System.out.println("loaded as loader");
 
         Parent root = loader.load();
-        var scene = new Scene(root,600,300);
+        var scene = new Scene(root);
         HomePageController homePageController = loader.getController();
         group12Model model = initializeModel();
         model.createResource("test", "This is all of my cooking shit","https://www.cookingclassy.com/",ResourceType.WEB);
