@@ -63,6 +63,7 @@ public class HomePageController implements Controller {
     @FXML
     public void onClick() throws IOException {
         ViewSwitcher viewSwitcher = new ViewSwitcher();
+        model.setCurrentNode(model.getRootCategory());
         viewSwitcher.switchTo("CategoryView.fxml",treeBtn,model);
     }
 

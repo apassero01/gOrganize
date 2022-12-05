@@ -135,10 +135,8 @@ public class CategoryViewController implements Controller{
         this.titleLabel.setAlignment(Pos.CENTER);
 
         this.descriptionLabel.setText(this.model.getCurrentNode().getDesciption());
-        this.descriptionLabel.setAlignment(Pos.CENTER);
 
         this.resourcesLabel.setText("Resources for " + this.model.getCurrentNode().getName()+ " Category:");
-        this.descriptionLabel.setAlignment(Pos.CENTER);
 
         if (this.model.getCurrentNode() == this.model.getRootCategory()){this.deleteButton.setVisible(false);}
 

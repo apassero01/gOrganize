@@ -11,13 +11,13 @@
       <Button fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Back" />
       <TextArea fx:id="textArea" layoutX="8.0" layoutY="156.0" prefHeight="402.0" prefWidth="758.0" />
       <Button fx:id="saveButton" layoutX="374.0" layoutY="558.0" mnemonicParsing="false" text="Save" />
-      <Label fx:id="titleLabel" alignment="CENTER" layoutX="361.0" layoutY="20.0">
+      <Label fx:id="titleLabel" alignment="CENTER" layoutX="68.0" layoutY="20.0" prefHeight="44.0" prefWidth="611.0">
          <font>
             <Font size="36.0" />
          </font>
       </Label>
-      <Label fx:id="descriptionLabel" layoutX="22.0" layoutY="76.0" prefHeight="17.0" prefWidth="749.0" />
-      <Label layoutX="22.0" layoutY="121.0" text="Important Notes" />
+      <Label fx:id="descriptionLabel" layoutX="13.0" layoutY="68.0" prefHeight="17.0" prefWidth="749.0" />
+      <Label layoutX="9.0" layoutY="129.0" text="Important Notes" />
       <Button fx:id="deleteButton" layoutX="692.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#deleteResource" text="Delete" />
    </children>
 </AnchorPane>

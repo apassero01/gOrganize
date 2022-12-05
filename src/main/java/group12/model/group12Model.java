@@ -131,7 +131,13 @@ public class group12Model implements Serializable
         this.currentNode = this.currentNode.getParent();
     }
 
+    public void setCurrentNode(CategoryNode currentNode)
+    {
+        this.currentNode = currentNode;
+    }
+
     /** Getter and Setter Methods below */
+
     public CategoryNode getRootCategory()
     {
         return rootCategory;

@@ -16,7 +16,7 @@
             <Font size="15.0" />
          </font></Label>
       <Button fx:id="backButton" layoutX="20.0" layoutY="21.0" mnemonicParsing="false" text="Back" />
-      <Button fx:id="continueButton" layoutX="399.0" layoutY="444.0" mnemonicParsing="false" text="Continue" />
+      <Button fx:id="continueButton" layoutX="362.0" layoutY="446.0" mnemonicParsing="false" text="Continue" />
       <Label layoutX="20.0" layoutY="96.0" text="Name">
          <font>
             <Font size="15.0" />
