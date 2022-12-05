@@ -113,10 +113,11 @@ public class WebResourceController extends ResourceController
     public void deleteResource(MouseEvent mouseEvent) throws IOException{
         //Remove node from Tree
         Resource resourceToDelete = this.model.getCurrentResource();
-        this.model.getCurrentNode().getResources().remove(resourceToDelete);
+        this.model.getCurrentNode().getResources().remove(resourceToDelete.getName());
+        this.model.saveData();
 
         //Change Scene
-        viewSwitcher.switchTo("CategoryView.FXML",deleteButton,this.model);
+        viewSwitcher.switchTo("CategoryView.fxml",deleteButton,this.model);
 
     }
 

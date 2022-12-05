@@ -73,9 +73,10 @@ public class DefaultResourceController extends ResourceController
         //Remove node from Tree
         Resource resourceToDelete = this.model.getCurrentResource();
         this.model.getCurrentNode().getResources().remove(resourceToDelete);
-
+        this.model.saveData();
         //Change Scene
-        viewSwitcher.switchTo("CategoryView.FXML",deleteButton,this.model);
+        viewSwitcher.switchTo("CategoryView.fxml",deleteButton,this.model);
+
 
     }
 

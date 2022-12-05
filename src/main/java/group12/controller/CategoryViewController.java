@@ -224,8 +224,8 @@ public class CategoryViewController implements Controller{
     public void deleteCategory(ActionEvent actionEvent) throws IOException {
         CategoryNode nodeToDelete = this.model.getCurrentNode();
         this.model.switchToParent();
-        this.model.getCurrentNode().getChildrenCategories().remove(nodeToDelete);
-
-        viewSwitcher.switchTo("CategoryView.FXML",deleteButton,this.model);
+        this.model.getCurrentNode().getChildrenCategories().remove(nodeToDelete.getName());
+        this.model.saveData();
+        viewSwitcher.switchTo("CategoryView.fxml",deleteButton,this.model);
     }
 }
