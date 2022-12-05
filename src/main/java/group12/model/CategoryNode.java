@@ -110,7 +110,15 @@ public class CategoryNode implements Serializable
         return this.parent;
     }
 
+    public String getName()
+    {
+        return name;
+    }
 
+    public String getDesciption()
+    {
+        return desciption;
+    }
 
     @Override
     public String toString()
