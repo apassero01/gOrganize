@@ -16,10 +16,13 @@
 package group12.controller;
 
 import group12.ViewSwitcher;
+import group12.model.Resource;
+import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.web.WebView;
 
@@ -55,7 +58,9 @@ public class WebResourceController extends ResourceController
     @FXML
     Label descriptionLabel;
 
-    /** viewSwitcher for switching views*/
+    @FXML
+    Button deleteButton;
+
     private static ViewSwitcher viewSwitcher;
 
     /** WebView for displaying web resource */
@@ -104,4 +109,16 @@ public class WebResourceController extends ResourceController
         webView.getEngine().load(resource.getResourceURL());
         stackpane.getChildren().add(webView);
     }
+    @FXML
+    public void deleteResource(MouseEvent mouseEvent) throws IOException{
+        //Remove node from Tree
+        Resource resourceToDelete = this.model.getCurrentResource();
+        this.model.getCurrentNode().getResources().remove(resourceToDelete);
+
+        //Change Scene
+        viewSwitcher.switchTo("CategoryView.FXML",deleteButton,this.model);
+
+    }
+
+
 }

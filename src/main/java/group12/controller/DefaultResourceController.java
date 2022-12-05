@@ -16,46 +16,37 @@
 package group12.controller;
 
 import group12.ViewSwitcher;
+import group12.model.Resource;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 
-/**
- * Controller class for a DefaultResource view
- * extends ResourceController parent class as a default resource is a resource
- */
 public class DefaultResourceController extends ResourceController
 {
 
-    /** TextArea for user to store the useful information that is the default resource  */
     @FXML
     TextArea textArea;
 
-    /** Button for sabing current state of the textArea to the resource  */
     @FXML
     Button saveButton;
-
-    /** Button for going back to parent category */
     @FXML
     Button backButton;
 
-    /** Label for the name of the resource */
     @FXML
     Label titleLabel;
 
-    /** Label for the description of the resource */
     @FXML
     Label descriptionLabel;
 
-    /** ViewSwitcher object for switching views */
+    @FXML
+    public Button deleteButton;
+
     private static ViewSwitcher viewSwitcher;
 
-    /**
-     * Overrides interface init controller for initializing view to current state
-     */
     @Override
     public void initController()
     {
@@ -76,6 +67,16 @@ public class DefaultResourceController extends ResourceController
         this.parentTitleLabel = titleLabel;
         this.updateTextDisplay();
         this.initButtons();
+    }
+    @FXML
+    public void deleteResource(MouseEvent mouseEvent) throws IOException{
+        //Remove node from Tree
+        Resource resourceToDelete = this.model.getCurrentResource();
+        this.model.getCurrentNode().getResources().remove(resourceToDelete);
+
+        //Change Scene
+        viewSwitcher.switchTo("CategoryView.FXML",deleteButton,this.model);
+
     }
 
 }

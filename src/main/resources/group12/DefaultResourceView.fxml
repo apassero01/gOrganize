@@ -18,6 +18,6 @@
       </Label>
       <Label fx:id="descriptionLabel" layoutX="22.0" layoutY="76.0" prefHeight="17.0" prefWidth="749.0" />
       <Label layoutX="22.0" layoutY="121.0" text="Important Notes" />
-      <Button layoutX="692.0" layoutY="14.0" mnemonicParsing="false" text="Delete" />
+      <Button fx:id="deleteButton" layoutX="692.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#deleteResource" text="Delete" />
    </children>
 </AnchorPane>
