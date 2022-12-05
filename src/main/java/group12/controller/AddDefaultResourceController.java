@@ -25,30 +25,42 @@ import javafx.scene.control.TextArea;
 import java.io.IOException;
 
 /**
- *
+ * Controller class for AddDefaultResource view
  */
 public class AddDefaultResourceController implements Controller
 {
+    /** TextArea for initial text user wants to recollect  */
     @FXML
     TextArea resourceTextArea;
+
+    /** Back button for controller */
     @FXML
     Button backButton;
 
+    /** Continue button for creating new resource */
     @FXML
     Button continueButton;
 
+    /** TextArea for name of new resource  */
     @FXML
     TextArea nameArea;
 
+    /** TextArea for description of new Resource */
     @FXML
     TextArea descriptionArea;
 
 
+    /** current model for controller */
     private group12Model model;
 
+    /** ViewSwitcher for switching to new views */
     private ViewSwitcher viewSwitcher;
 
 
+    /**
+     * Overrides interface setModel method
+     * @param model - current group12Model of application
+     */
     @Override
     public void setModel(group12Model model)
     {
@@ -56,6 +68,9 @@ public class AddDefaultResourceController implements Controller
         this.viewSwitcher = new ViewSwitcher();
     }
 
+    /**
+     * Overrides interface initController method for initializing this controller
+     */
     @Override
     public void initController()
     {
@@ -74,6 +89,9 @@ public class AddDefaultResourceController implements Controller
         });
     }
 
+    /**
+     * Method to create a new resource for the model
+     */
     public void createResource()
     {
 

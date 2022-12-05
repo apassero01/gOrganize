@@ -34,30 +34,31 @@
 
 package group12.controller;
 
-
-import group12.Main;
 import group12.ViewSwitcher;
 import group12.model.group12Model;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 
-
+/**
+ * Controller class for homepage of application
+ */
 public class HomePageController implements Controller {
 
 
+    /** Button for going to first category in the tree */
     @FXML
     public Button treeBtn;
 
+    /** Label for name of application */
     @FXML
     public Label label1;
 
+    /** Current model of application */
     public group12Model model;
+
 
     @FXML
     public void onClick() throws IOException {
@@ -71,6 +72,9 @@ public class HomePageController implements Controller {
         this.model=model;
     }
 
+    /**
+     * No initialization needed
+     */
     @Override
     public void initController()
     {

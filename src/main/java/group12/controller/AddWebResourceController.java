@@ -25,29 +25,41 @@ import javafx.scene.control.TextArea;
 import java.io.IOException;
 
 /**
- *
+ * Controller class for AddWebResource view
  */
 public class AddWebResourceController implements Controller
 {
+    /** backButton for current view */
     @FXML
     Button backButton;
 
+    /** Continue button for creating new webResource */
     @FXML
     Button continueButton;
 
+    /** TextArea for user input of name of new resource  */
     @FXML
     TextArea nameArea;
 
+    /** TextArea for user input of description of new resource */
     @FXML
     TextArea descriptionArea;
+
+    /** TextArea for user input of URL of web resource */
     @FXML
     TextArea URLArea;
 
+    /** model of current controller */
     private group12Model model;
 
+    /** ViewSwitcher for switching to new views  */
     private ViewSwitcher viewSwitcher;
 
 
+    /**
+     * Overrides interface setModel method
+     * @param model
+     */
     @Override
     public void setModel(group12Model model)
     {
@@ -55,6 +67,9 @@ public class AddWebResourceController implements Controller
         this.viewSwitcher = new ViewSwitcher();
     }
 
+    /**
+     * Overrides interface initController for initializing this controller
+     */
     @Override
     public void initController()
     {
@@ -73,6 +88,9 @@ public class AddWebResourceController implements Controller
         });
     }
 
+    /**
+     * Method for creating a new resource for the model
+     */
     public void createResource()
     {
 

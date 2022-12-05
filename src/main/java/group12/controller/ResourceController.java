@@ -22,22 +22,34 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 
 
-
+/**
+ * Abstract controller class for resource objects for shared functionality of different
+ * resource types
+ */
 public abstract class ResourceController implements Controller
 {
 
+    /** TextArea for storing user text for current resource  */
     protected TextArea parentTextArea;
 
+    /** Save button for saving current text in textArea to resource */
     protected Button parentSaveButton;
 
+    /** Label for title of resource  */
     protected Label parentTitleLabel;
 
+    /** Label for description of resource */
     protected Label parentDescriptionLabel;
 
+    /** Resource to be displayed */
     protected Resource resource;
 
+    /** current model of application */
     protected group12Model model;
 
+    /**
+     * Method for initializing shared buttons
+     */
     protected void initButtons()
     {
         this.parentSaveButton.setOnAction(actionEvent -> {
@@ -50,11 +62,15 @@ public abstract class ResourceController implements Controller
 
     }
 
+    /**
+     * Method for updating text in text box to the text that is stored in the resource
+     */
     protected void updateTextDisplay()
     {
         Resource resource = this.model.getCurrentResource();
         this.parentTextArea.setText(resource.getNotesText());
     }
+
 
     @Override
     public void setModel(group12Model model)

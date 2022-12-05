@@ -8,22 +8,28 @@
  *
  * Project: csci205_final_project
  * Package: group12.model
- * Class: WriteObjects
+ * Class: ManageData
  *
  * Description:
- *
+ * Class to manage user Data
  * *****************************************/
 package group12.model;
 
 import java.io.*;
 
+/**
+ * Class to manage user Data
+ */
 public class ManageData
 {
+    /**
+     * write object to a file
+     * @param obj - object to serialize
+     */
     public void writeData(Object obj)
     {
         try(FileOutputStream fs = new FileOutputStream("categories.bin"))
         {
-//            System.out.println("Writing data");
             ObjectOutputStream os = new ObjectOutputStream(fs);
             os.writeObject(obj);
             os.close();
@@ -35,6 +41,10 @@ public class ManageData
         }
     }
 
+    /**
+     * Method to read data from file
+     * @return - object of serialized data
+     */
     public Object readData()
     {
         try(FileInputStream fi = new FileInputStream("categories.bin")){

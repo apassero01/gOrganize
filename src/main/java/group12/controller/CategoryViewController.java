@@ -47,55 +47,51 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import group12.model.group12Model;
 
-import java.awt.*;
 import java.io.IOException;
 import java.util.TreeMap;
 import java.util.concurrent.atomic.AtomicReference;
 
+/**
+ * Controller class for CategoryView view
+ */
 public class CategoryViewController implements Controller{
 
+    /** Back button for category view */
     @FXML
     public Button backButton;
 
+    /** Button for adding new category */
     @FXML
     public Button addCategoryButton;
 
-    @FXML
-    public Button addResourceButton;
-
+    /** Hbox of view for displaying children categories */
     @FXML
     public HBox hbox;
 
+    /** Vbox for displaying resource of current category */
     @FXML
     public VBox vbox;
 
-    @FXML
-    public MenuItem menuItem;
 
+    /** current model of application */
     private group12Model model;
 
+    /** ViewSwitcher for changing to different views */
     private ViewSwitcher viewSwitcher;
 
-    @FXML
-    public void goBack(MouseEvent event) throws IOException
-    {
-        if (this.model.getCurrentNode() == this.model.getRootCategory())
-        {
-            viewSwitcher.switchTo("homePage.fxml",backButton,this.model);
-        }
-        else
-        {
-            this.model.switchToParent();
-            viewSwitcher.switchTo("CategoryView.fxml",backButton,this.model);
-        }
-    }
-
+    /**
+     * Overrides interface setModel method
+     * @param model
+     */
     @Override
     public void setModel(group12Model model)
     {
         this.model = model;
     }
 
+    /**
+     * Overrides interface initController method for this controller
+     */
     @Override
     public void initController()
     {
@@ -115,6 +111,27 @@ public class CategoryViewController implements Controller{
         });
     }
 
+    /**
+     * Method for going back to parent category of this category
+     * @param event
+     * @throws IOException
+     */
+    public void goBack(MouseEvent event) throws IOException
+    {
+        if (this.model.getCurrentNode() == this.model.getRootCategory())
+        {
+            viewSwitcher.switchTo("homePage.fxml",backButton,this.model);
+        }
+        else
+        {
+            this.model.switchToParent();
+            viewSwitcher.switchTo("CategoryView.fxml",backButton,this.model);
+        }
+    }
+
+    /**
+     * Initialize all childrenCategories to display
+     */
     private void initSubCategories()
     {
         CategoryNode currentNode = this.model.getCurrentNode();
@@ -129,6 +146,9 @@ public class CategoryViewController implements Controller{
         }
     }
 
+    /**
+     * Method for initializing resources to display
+     */
     public void initResources()
     {
         CategoryNode currentNode = this.model.getCurrentNode();
@@ -139,6 +159,11 @@ public class CategoryViewController implements Controller{
         }
     }
 
+    /**
+     * Method for creating buttons for each resource of current category
+     * @param name - name of resource
+     * @return Button - button to add to view of resource
+     */
     public Button resourceButtonFactory(String name)
     {
         Button curButton = new Button(name);
@@ -166,6 +191,12 @@ public class CategoryViewController implements Controller{
         });
         return curButton;
     }
+
+    /**
+     * Method for creating buttons for each child category of current category
+     * @param name - name of category
+     * @return Button - button of child category
+     */
     public Button categoryButtonFactory(String name)
     {
         Button curButton = new Button(name);
@@ -183,11 +214,21 @@ public class CategoryViewController implements Controller{
         return curButton;
     }
 
-    public void addWebRosource(javafx.event.ActionEvent actionEvent) throws IOException {
+    /**
+     * Method for adding a webResource to current category
+     * @param actionEvent
+     * @throws IOException
+     */
+    public void addWebResource(javafx.event.ActionEvent actionEvent) throws IOException {
         viewSwitcher.switchTo("AddWebResource.fxml",backButton,this.model);
     }
 
 
+    /**
+     * Method for adding a default resource to current category
+     * @param actionEvent
+     * @throws IOException
+     */
     public void addDefaultResource(ActionEvent actionEvent) throws IOException {
         viewSwitcher.switchTo("AddDefaultResource.fxml",backButton,this.model);
     }

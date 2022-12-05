@@ -12,17 +12,19 @@ import javafx.stage.Stage;
 
 import java.io.File;
 
+/**
+ * Main Class for starting application
+ */
 public class  Main extends Application
 {
 
+    /** ManageData object to retrieve data */
     public static ManageData manageData;
 
     public void start(Stage primaryStage) throws Exception{
-//        Parent root = FXMLLoader.load(getClass().getResource("homePage.fxml"));
-       // System.out.println("load file");
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("homePage.fxml"));
 
-        //System.out.println("loaded as loader");
 
         Parent root = loader.load();
         var scene = new Scene(root);
@@ -30,12 +32,10 @@ public class  Main extends Application
         group12Model model = initializeModel();
         model.createResource("test", "This is all of my cooking shit","https://www.cookingclassy.com/",ResourceType.WEB);
         homePageController.setModel(model);
-        //Scene root = loader.load();
-        //System.out.println("loaded as scene");
+
 
         primaryStage.setTitle("App Name");
 
-        //loadScene(primaryStage,currentScene);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
@@ -53,6 +53,10 @@ public class  Main extends Application
 
     }
 
+    /**
+     * Method for intitializing model object for application
+     * @return - group12Model model of application
+     */
     public static group12Model initializeModel()
     {
         group12Model model;
@@ -67,17 +71,6 @@ public class  Main extends Application
             model = new group12Model("test");
         }
 
-        return model;
-    }
-    public static group12Model testModel()
-    {
-        group12Model model = new group12Model("Andrew");
-        model.createCategory("Loser","loser");
-        model.createCategory("loser2","loser2");
-        model.switchNode("loser2");
-        model.createResource("website","","https://aiecode.com/dashboard/54", ResourceType.WEB);
-        model.createCategory("loserInsideOfLoser","");
-        model.switchToParent();
         return model;
     }
 

@@ -11,20 +11,39 @@
  * Class: Resource
  *
  * Description:
- *
+ * Class to encapsulate a Resource to be stored for later reference
  * *****************************************/
 package group12.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
+/**
+ * Class to encapsulate a Resource to be stored for later reference
+ */
 public class Resource implements Serializable
 {
+    /** Name of resource  */
     protected String name;
+
+    /** Description of resource */
     protected String description;
+
+    /** Text of user Notes of a resource  */
     protected String notesText;
+
+    /** String of URL of resource  */
     protected String resourceLocator;
+
+    /** type of resource */
     protected ResourceType type;
+
+    /**
+     * Constructor for new resource
+     * @param name - name of resource
+     * @param description - description of resource
+     * @param URL - URL of resource
+     * @param type - ResourceType of new resource
+     */
     public Resource(String name, String description, String URL,ResourceType type)
     {
         this.name = name;
@@ -35,11 +54,7 @@ public class Resource implements Serializable
 
     }
 
-    public void displayResource()
-    {
-        System.out.println(name);
-    }
-
+    /** Getter and Setter methods below */
     public String getName()
     {
         return name;

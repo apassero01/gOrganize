@@ -16,8 +16,6 @@
 package group12.controller;
 
 import group12.ViewSwitcher;
-import group12.model.Resource;
-import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -28,31 +26,45 @@ import javafx.scene.web.WebView;
 import java.io.IOException;
 
 
+/**
+ * Controller class for WebResource view
+ */
 public class WebResourceController extends ResourceController
 {
-
+    /** stackPane for webView object*/
     @FXML
     StackPane stackpane;
 
+    /** Text area for user input of text */
     @FXML
     TextArea textArea;
 
+    /** Save Button of view */
     @FXML
     Button saveButton;
+
+    /** Back button */
     @FXML
     Button backButton;
 
+    /** Label for title of resource */
     @FXML
     Label titleLabel;
 
+    /** Label for the description of resource */
     @FXML
     Label descriptionLabel;
 
+    /** viewSwitcher for switching views*/
     private static ViewSwitcher viewSwitcher;
 
+    /** WebView for displaying web resource */
     private WebView webView;
 
 
+    /**
+     * Overrides interface method for initializing this controller
+     */
     @Override
     public void initController()
     {
@@ -78,6 +90,9 @@ public class WebResourceController extends ResourceController
 
     }
 
+    /**
+     * Method for creating webView to display web resourcce
+     */
     private void createWebView()
     {
         webView = new WebView();

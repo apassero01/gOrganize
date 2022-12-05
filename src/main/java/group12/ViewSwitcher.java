@@ -26,7 +26,7 @@
 
  * Description:
 
- *
+ * Class for switching views of GUI
 
  * ****************************************
 
@@ -45,16 +45,22 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * Class to switch views of current display of GUI
+ */
 public class ViewSwitcher {
 
-
-    private Scene scene;
-
-
+    /**
+     * Method for switching current display to new view
+     * @param fileName - .fxml file location of next view
+     * @param btn - button that called for a new view
+     * @param model - current model that exists before view is switched
+     * @throws IOException - thrown if .fxml file does not exist
+     */
     public void switchTo(String fileName, Button btn, group12Model model) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fileName));
         Parent root = loader.load();
-        this.scene = new Scene(root);
+        Scene scene = new Scene(root);
 
         Controller controller = loader.getController();
         controller.setModel(model);
@@ -63,9 +69,6 @@ public class ViewSwitcher {
 
         Main.loadScene(stage, scene);
 
-    }
-    public Scene getScene() {
-        return this.scene;
     }
 
 
