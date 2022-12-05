@@ -47,34 +47,35 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import group12.model.group12Model;
-
-import java.awt.*;
 import java.io.IOException;
 import java.util.TreeMap;
 import java.util.concurrent.atomic.AtomicReference;
 
+/**
+ * Controller class for CategoryView
+ */
 public class CategoryViewController implements Controller{
 
+    /** Back button */
     @FXML
     public Button backButton;
 
+    /** Button for adding new categories*/
     @FXML
     public Button addCategoryButton;
 
-    @FXML
-    public Button addResourceButton;
-
+    /** Hbox for storing children categories */
     @FXML
     public HBox hbox;
 
+    /** VBox for storing resource objects */
     @FXML
     public VBox vbox;
 
-    @FXML
-    public MenuItem menuItem;
-
+    /** Delete Category button */
     @FXML
     public Button deleteButton;
+
     /** Label for description */
     @FXML
     Label descriptionLabel;
@@ -87,10 +88,19 @@ public class CategoryViewController implements Controller{
     @FXML
     Label resourcesLabel;
 
+
+     /** current model for controller */
+
     private group12Model model;
 
+    /** ViewSwitcher for switching to other views */
     private ViewSwitcher viewSwitcher;
 
+    /**
+     * Method for back button
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void goBack(MouseEvent event) throws IOException
     {
@@ -105,12 +115,19 @@ public class CategoryViewController implements Controller{
         }
     }
 
+    /**
+     * Overrides interface set model method
+     * @param model
+     */
     @Override
     public void setModel(group12Model model)
     {
         this.model = model;
     }
 
+    /**
+     * Overrides interface init controller method for updating view to current state of model.
+     */
     @Override
     public void initController()
     {
@@ -122,6 +139,8 @@ public class CategoryViewController implements Controller{
 
         this.resourcesLabel.setText("Resources for " + this.model.getCurrentNode().getName()+ " Category:");
         this.descriptionLabel.setAlignment(Pos.CENTER);
+
+        if (this.model.getCurrentNode() == this.model.getRootCategory()){this.deleteButton.setVisible(false);}
 
         this.hbox.setSpacing(50);
         this.hbox.setAlignment(Pos.CENTER);
@@ -139,6 +158,9 @@ public class CategoryViewController implements Controller{
         });
     }
 
+    /**
+     * Method for initializing children categories to view
+     */
     private void initSubCategories()
     {
         CategoryNode currentNode = this.model.getCurrentNode();
@@ -153,6 +175,9 @@ public class CategoryViewController implements Controller{
         }
     }
 
+    /**
+     * Method for initializing Category resources to view
+     */
     public void initResources()
     {
         CategoryNode currentNode = this.model.getCurrentNode();
@@ -163,6 +188,11 @@ public class CategoryViewController implements Controller{
         }
     }
 
+    /**
+     * Method that returns button with correct action for accessing the proper resource
+     * @param name - name of resource
+     * @return Button - button with action to open resource
+     */
     public Button resourceButtonFactory(String name)
     {
         Button curButton = new Button(name);
@@ -192,6 +222,12 @@ public class CategoryViewController implements Controller{
         curButton.setAlignment(Pos.CENTER_LEFT);
         return curButton;
     }
+
+    /**
+     * Method that returns a button with the correct action for children categories of a view
+     * @param name - name of child category
+     * @return - Button with action set to open child category
+     */
     public Button categoryButtonFactory(String name)
     {
         Button curButton = new Button(name);
@@ -211,16 +247,31 @@ public class CategoryViewController implements Controller{
         return curButton;
     }
 
+    /**
+     * Add Web resource to category
+     * @param actionEvent
+     * @throws IOException
+     */
     public void addWebResource(javafx.event.ActionEvent actionEvent) throws IOException {
         viewSwitcher.switchTo("AddWebResource.fxml",backButton,this.model);
     }
 
 
+    /**
+     * Add default resource to category
+     * @param actionEvent
+     * @throws IOException
+     */
     public void addDefaultResource(ActionEvent actionEvent) throws IOException {
         viewSwitcher.switchTo("AddDefaultResource.fxml",backButton,this.model);
     }
 
 
+    /**
+     * Delete the current category
+     * @param actionEvent
+     * @throws IOException
+     */
     public void deleteCategory(ActionEvent actionEvent) throws IOException {
         CategoryNode nodeToDelete = this.model.getCurrentNode();
         this.model.switchToParent();

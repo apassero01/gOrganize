@@ -28,7 +28,7 @@ public class ManageData
      */
     public void writeData(Object obj)
     {
-        try(FileOutputStream fs = new FileOutputStream("categories.bin"))
+        try(FileOutputStream fs = new FileOutputStream("SerializedModel.bin"))
         {
             ObjectOutputStream os = new ObjectOutputStream(fs);
             os.writeObject(obj);
@@ -47,7 +47,7 @@ public class ManageData
      */
     public Object readData()
     {
-        try(FileInputStream fi = new FileInputStream("categories.bin")){
+        try(FileInputStream fi = new FileInputStream("SerializedModel.bin")){
             ObjectInputStream is = new ObjectInputStream(fi);
             Object object = is.readObject();
             is.close();

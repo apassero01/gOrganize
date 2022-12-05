@@ -26,7 +26,7 @@
                     </items>
                   </MenuButton>
                   <Button fx:id="deleteButton" layoutX="478.0" layoutY="15.0" mnemonicParsing="false" onAction="#deleteCategory" text="Delete" />
-                  <Label fx:id="titleLabel" layoutX="303.0" layoutY="14.0" prefHeight="29.0" prefWidth="158.0" text="Title">
+                  <Label fx:id="titleLabel" layoutX="174.0" layoutY="14.0" prefHeight="29.0" prefWidth="287.0" text="Title">
                      <font>
                         <Font size="24.0" />
                      </font>

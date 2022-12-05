@@ -8,6 +8,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextInputDialog;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -30,11 +31,9 @@ public class  Main extends Application
         var scene = new Scene(root);
         HomePageController homePageController = loader.getController();
         group12Model model = initializeModel();
-        model.createResource("test", "This is all of my cooking shit","https://www.cookingclassy.com/",ResourceType.WEB);
         homePageController.setModel(model);
 
-
-        primaryStage.setTitle("App Name");
+        primaryStage.setTitle("Tree");
 
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -54,21 +53,28 @@ public class  Main extends Application
     }
 
     /**
-     * Method for intitializing model object for application
+     * Method for initializing model object for application
+     * if data file exists, pull data if not create new model and write data
      * @return - group12Model model of application
      */
     public static group12Model initializeModel()
     {
         group12Model model;
         manageData = new ManageData();
-        File file = new File("categories.bin");
+        File file = new File("SerializedModel.bin");
         if (file.exists())
         {
             model = (group12Model) manageData.readData();
         }
         else
         {
-            model = new group12Model("test");
+            TextInputDialog inputDialog = new TextInputDialog();
+            inputDialog.setTitle("Enter your Name");
+            inputDialog.setHeaderText("Enter your name");
+            inputDialog.showAndWait();
+
+            model = new group12Model(inputDialog.getEditor().getText()+"'s Resource Tree");
+            model.saveData();
         }
 
         return model;
