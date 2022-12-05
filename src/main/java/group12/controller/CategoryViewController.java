@@ -42,6 +42,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -74,6 +75,17 @@ public class CategoryViewController implements Controller{
 
     @FXML
     public Button deleteButton;
+    /** Label for description */
+    @FXML
+    Label descriptionLabel;
+
+    /** Label for title of category */
+    @FXML
+    Label titleLabel;
+
+    /** Label for resources */
+    @FXML
+    Label resourcesLabel;
 
     private group12Model model;
 
@@ -102,6 +114,15 @@ public class CategoryViewController implements Controller{
     @Override
     public void initController()
     {
+        this.titleLabel.setText(this.model.getCurrentNode().getName());
+        this.titleLabel.setAlignment(Pos.CENTER);
+
+        this.descriptionLabel.setText(this.model.getCurrentNode().getDesciption());
+        this.descriptionLabel.setAlignment(Pos.CENTER);
+
+        this.resourcesLabel.setText("Resources for " + this.model.getCurrentNode().getName()+ " Category:");
+        this.descriptionLabel.setAlignment(Pos.CENTER);
+
         this.hbox.setSpacing(50);
         this.hbox.setAlignment(Pos.CENTER);
         viewSwitcher = new ViewSwitcher();
@@ -167,6 +188,8 @@ public class CategoryViewController implements Controller{
                 throw new RuntimeException(e);
             }
         });
+        curButton.setPrefWidth(this.vbox.getPrefWidth());
+        curButton.setAlignment(Pos.CENTER_LEFT);
         return curButton;
     }
     public Button categoryButtonFactory(String name)
@@ -183,6 +206,8 @@ public class CategoryViewController implements Controller{
                 throw new RuntimeException(e);
             }
         });
+        curButton.setWrapText(true);
+        curButton.setAlignment(Pos.CENTER);
         return curButton;
     }
 
