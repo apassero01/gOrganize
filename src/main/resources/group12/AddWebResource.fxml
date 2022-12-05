@@ -8,9 +8,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="585.0" prefWidth="774.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="group12.controller.AddWebResourceController">
    <children>
-      <TextArea fx:id="nameArea" layoutX="27.0" layoutY="173.0" prefHeight="33.0" prefWidth="819.0" />
-      <TextArea fx:id="descriptionArea" layoutX="27.0" layoutY="262.0" prefHeight="87.0" prefWidth="819.0" />
-      <TextArea fx:id="URLArea" layoutX="27.0" layoutY="409.0" prefHeight="6.0" prefWidth="819.0" />
+      <TextArea fx:id="nameArea" layoutX="27.0" layoutY="173.0" prefHeight="39.0" prefWidth="737.0" />
+      <TextArea fx:id="descriptionArea" layoutX="27.0" layoutY="262.0" prefHeight="87.0" prefWidth="737.0" />
+      <TextArea fx:id="URLArea" layoutX="27.0" layoutY="409.0" prefHeight="41.0" prefWidth="737.0" />
       <Button fx:id="backButton" layoutX="27.0" layoutY="28.0" mnemonicParsing="false" text="Back" />
       <Button fx:id="continueButton" layoutX="398.0" layoutY="464.0" mnemonicParsing="false" text="Continue" />
       <Label layoutX="30.0" layoutY="148.0" text="Name">
@@ -28,9 +28,9 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="27.0" layoutY="73.0" prefHeight="17.0" prefWidth="826.0" text="Create a new resource to a specific website by entering a name and description of the resource along with the web URL" textAlignment="CENTER">
+      <Label layoutX="27.0" layoutY="73.0" prefHeight="20.0" prefWidth="737.0" text="Create a new resource to a specific website by entering a name and description of the resource along with the web URL" textAlignment="CENTER">
          <font>
-            <Font size="16.0" />
+            <Font size="14.0" />
          </font>
       </Label>
    </children>

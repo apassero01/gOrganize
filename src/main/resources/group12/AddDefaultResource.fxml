@@ -8,9 +8,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="585.0" prefWidth="774.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="group12.controller.AddDefaultResourceController">
    <children>
-      <TextArea fx:id="nameArea" layoutX="17.0" layoutY="123.0" prefHeight="39.0" prefWidth="832.0" />
-      <TextArea fx:id="descriptionArea" layoutX="18.0" layoutY="202.0" prefHeight="91.0" prefWidth="832.0" />
-      <TextArea fx:id="resourceTextArea" layoutX="19.0" layoutY="341.0" prefHeight="91.0" prefWidth="835.0" />
+      <TextArea fx:id="nameArea" layoutX="17.0" layoutY="123.0" prefHeight="39.0" prefWidth="748.0" />
+      <TextArea fx:id="descriptionArea" layoutX="18.0" layoutY="202.0" prefHeight="91.0" prefWidth="748.0" />
+      <TextArea fx:id="resourceTextArea" layoutX="19.0" layoutY="341.0" prefHeight="91.0" prefWidth="748.0" />
       <Label layoutX="20.0" layoutY="303.0" prefHeight="32.0" prefWidth="407.0" text="Important information to come back to">
          <font>
             <Font size="15.0" />
@@ -27,9 +27,9 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="21.0" layoutY="53.0" prefHeight="17.0" prefWidth="826.0" text="Create a new resource to remember something important with a name, descrtiption and the content of the resource" textAlignment="CENTER">
+      <Label layoutX="21.0" layoutY="53.0" prefHeight="20.0" prefWidth="748.0" text="Create a new resource to remember something important with a name, descrtiption and the content of the resource" textAlignment="CENTER">
          <font>
-            <Font size="16.0" />
+            <Font size="14.0" />
          </font>
       </Label>
    </children>
