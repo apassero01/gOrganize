@@ -33,7 +33,7 @@ public class  Main extends Application
         group12Model model = initializeModel();
         homePageController.setModel(model);
 
-        primaryStage.setTitle("Tree");
+        primaryStage.setTitle("gOrganize");
 
         primaryStage.setScene(scene);
         primaryStage.show();
