@@ -2,45 +2,38 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
+<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="585.0" prefWidth="774.0" style="-fx-background-color: Navy;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="group12.controller.HomePageController">
    <children>
-      <Label alignment="CENTER" layoutX="318.0" layoutY="39.0" prefHeight="19.0" prefWidth="78.0" style="-fx-border-color: orange;" text="gOrganize" textFill="#ffac05" />
-      <VBox layoutX="2.0" layoutY="108.0" prefHeight="480.0" prefWidth="349.0">
-         <children>
-            <Label fx:id="label1" prefHeight="70.0" prefWidth="351.0" style="-fx-background-color: white;" text="This app is used to store and organize anything you would like &#10;Create categories for all the areas of your life you need to &#10;store information" />
-            <ImageView fitHeight="150.0" fitWidth="279.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Screen_Shot_2022-12-05_at_7.11.42_PM.png" />
-               </image>
-            </ImageView>
-            <Label prefHeight="41.0" prefWidth="323.0" style="-fx-background-color: White;" text="Add sub categories to get more specific along with things &#10;to remember related to the category" />
-            <ImageView fitHeight="150.0" fitWidth="200.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Screen_Shot_2022-12-05_at_7.12.15_PM.png" />
-               </image>
-            </ImageView>
-         </children>
-      </VBox>
-      <Button fx:id="treeBtn" alignment="CENTER" layoutX="318.0" layoutY="68.0" mnemonicParsing="false" onAction="#onClick" text="Go to Tree!" />
-      <VBox layoutX="357.0" layoutY="104.0" prefHeight="480.0" prefWidth="409.0">
-         <children>
-            <Label prefHeight="38.0" prefWidth="409.0" style="-fx-background-color: White;" text="Add web resources linked to a web address for easy access to&#10; the website along with your notes" />
-            <ImageView fitHeight="187.0" fitWidth="189.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Screen_Shot_2022-12-05_at_7.12.42_PM.png" />
-               </image>
-            </ImageView>
-            <Label prefHeight="17.0" prefWidth="399.0" style="-fx-background-color: White;" text="Or just store simple text to make sure you remember" />
-            <ImageView fitHeight="150.0" fitWidth="212.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Screen_Shot_2022-12-05_at_7.15.36_PM.png" />
-               </image>
-            </ImageView>
-         </children></VBox>
+      <Label alignment="CENTER" layoutX="326.0" layoutY="21.0" prefHeight="38.0" prefWidth="125.0" style="-fx-border-color: orange;" text="gOrganize" textFill="#ffac05" />
+      <Button fx:id="treeBtn" alignment="CENTER" layoutX="350.0" layoutY="63.0" mnemonicParsing="false" onAction="#onClick" text="Go to Tree!" />
+      <SplitPane dividerPositions="0.11689814814814815" layoutX="103.0" layoutY="126.0" orientation="VERTICAL" prefHeight="434.0" prefWidth="559.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="557.0">
+               <children>
+                  <Label fx:id="tutorialText" layoutX="5.0" layoutY="-2.0" prefHeight="53.0" prefWidth="550.0" text="Label" wrapText="true">
+                     <font>
+                        <Font name="Roboto Black" size="13.0" />
+                     </font></Label>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="322.0" prefWidth="557.0">
+               <children>
+                  <ImageView fx:id="imageView" fitHeight="362.0" fitWidth="562.0" layoutX="-3.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button fx:id="rightButton" layoutX="291.0" layoutY="324.0" mnemonicParsing="false" prefHeight="13.0" prefWidth="48.0" text="-&gt;" />
+                  <Button fx:id="leftButton" layoutX="243.0" layoutY="324.0" mnemonicParsing="false" prefHeight="13.0" prefWidth="48.0" text="&lt;-" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+      <Label layoutX="356.0" layoutY="92.0" prefHeight="28.0" prefWidth="65.0" text="Tutorial" textFill="WHITE">
+         <font>
+            <Font name="Roboto Black" size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

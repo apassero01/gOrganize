@@ -32,6 +32,7 @@ public class  Main extends Application
         HomePageController homePageController = loader.getController();
         group12Model model = initializeModel();
         homePageController.setModel(model);
+        homePageController.initController();
 
         primaryStage.setTitle("gOrganize");
 
