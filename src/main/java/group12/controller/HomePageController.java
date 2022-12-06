@@ -55,26 +55,29 @@ public class HomePageController implements Controller {
     @FXML
     public Button treeBtn;
 
-    /** Label for name of application */
-    @FXML
-    public Label label1;
-
+    /** Label for the text displayed throughout tutorial */
     @FXML
     Label tutorialText;
 
+    /** Button for going left in tutorial */
     @FXML
     Button leftButton;
 
+    /** Button for going right in tutorial */
     @FXML
     Button rightButton;
 
+    /** ImageView to display tutorial images*/
     @FXML
     ImageView imageView;
 
+    /** List of image objects to display during tutorial */
     private ArrayList<Image> imageList;
 
+    /** List of tutorial Strings to display with corresponding images.Same index as imageList  */
     private ArrayList<String> imageTextList;
 
+    /** current index being displayed in tutorial slide show  */
     private int index;
 
     /** Current model of application */
@@ -95,7 +98,8 @@ public class HomePageController implements Controller {
     }
 
     /**
-     * No initialization needed
+     * Override interface initController method for this controller. Creates an ArrayList
+     * for images and statements to display in the tutorial on the homepage
      */
     @Override
     public void initController()
@@ -129,6 +133,9 @@ public class HomePageController implements Controller {
 
     }
 
+    /**
+     * Initialize slide show buttons
+     */
     private void initButtons()
     {
         this.leftButton.setOnAction(event -> {
