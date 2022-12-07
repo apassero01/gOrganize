@@ -23,3 +23,4 @@ Standard Java project structure with program code existing in src/main/java/grou
 * JavaFX 
 
 # Video URL: 
+https://mediaspace.bucknell.edu/media/Group12+gOrganize+Project/1_ntioojwr
