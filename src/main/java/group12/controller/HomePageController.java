@@ -108,17 +108,17 @@ public class HomePageController implements Controller {
         this.imageList = new ArrayList<>();
         this.imageTextList = new ArrayList<>();
 
-        this.imageList.add(new Image("group12/Screen_Shot_2022-12-05_at_7.11.42_PM.png"));
+        this.imageList.add(new Image(("file:Screen_Shot_2022-12-05_at_7.11.42_PM.png")));
 
         this.imageTextList.add("Create categories for all the areas of your life you need to store information");
 
-        this.imageList.add(new Image("group12/Screen_Shot_2022-12-05_at_7.12.15_PM.png"));
+        this.imageList.add(new Image("file:group12/Screen_Shot_2022-12-05_at_7.12.15_PM.png"));
         this.imageTextList.add("Add sub categories to get more specific along with things to remember related to the category");
 
-        this.imageList.add(new Image("group12/Screen_Shot_2022-12-05_at_7.12.42_PM.png"));
+        this.imageList.add(new Image("file:group12/Screen_Shot_2022-12-05_at_7.12.42_PM.png"));
         this.imageTextList.add("Add web resources linked to a web address for easy access to the website along with your notes");
 
-        this.imageList.add(new Image("group12/Screen_Shot_2022-12-05_at_7.15.36_PM.png"));
+        this.imageList.add(new Image("file:group12/Screen_Shot_2022-12-05_at_7.15.36_PM.png"));
         this.imageTextList.add("Or just store simple text to make sure you remember");
 
 
